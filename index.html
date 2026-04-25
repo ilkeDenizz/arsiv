@@ -6,128 +6,152 @@
     <title>Akademik Arşiv 🦝</title>
     <style>
         :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
-            --text: #f1f5f9;
+            --bg: #0d1117; /* Daha derin dark mode */
+            --card-bg: #161b22;
+            --accent: #58a6ff;
+            --text: #c9d1d9;
+            --border: #30363d;
         }
 
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center; /* İçeriği ortala */
         }
 
-        header { text-align: center; margin-bottom: 30px; }
+        .main-wrapper {
+            width: 100%;
+            max-width: 500px; /* Çok yayılmasını engeller, derli toplu tutar */
+        }
+
+        header { text-align: center; margin-bottom: 25px; }
+        header h1 { font-size: 1.4rem; margin-bottom: 5px; }
+        header p { font-size: 0.85rem; opacity: 0.6; }
         
-        /* Sınıf Butonları */
+        /* Sınıf Butonları - Daha kibar ve ince */
         .year-nav {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
         .year-btn {
+            flex: 1;
             background: var(--card-bg);
-            border: 2px solid transparent;
-            color: white;
-            padding: 15px 5px;
-            border-radius: 12px;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px 0;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: 0.2s;
         }
 
         .year-btn.active {
             border-color: var(--accent);
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent);
         }
 
         /* Dönem ve Ders Yapısı */
         .year-content { display: none; }
-        .year-content.active { display: block; animation: fadeIn 0.5s; }
+        .year-content.active { display: block; animation: fadeIn 0.4s ease; }
 
         .semester-title {
             color: var(--accent);
-            border-bottom: 1px solid #334155;
-            padding-bottom: 5px;
-            margin: 20px 0 15px;
-            font-size: 1.1rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 25px 0 10px 5px;
+            opacity: 0.8;
         }
 
-        .course-list { display: grid; gap: 10px; }
+        .course-list { display: flex; flex-direction: column; gap: 8px; }
 
         .course-item {
             background: var(--card-bg);
-            padding: 15px;
-            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 12px 15px;
+            border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: 0.2s;
         }
+
+        .course-item:hover { border-color: #8b949e; }
+
+        .course-item span { font-size: 0.9rem; font-weight: 400; }
 
         .links a {
             color: var(--accent);
             text-decoration: none;
-            font-size: 0.8rem;
-            margin-left: 10px;
-            border: 1px solid var(--accent);
-            padding: 4px 8px;
-            border-radius: 5px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: #21262d;
         }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .links a:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Racoon 🦝</h1>
-    <p>Bilgisayar Mühendisliği Ders Arşivi</p>
-</header>
+<div class="main-wrapper">
+    <header>
+        <h1>Racoon 🦝</h1>
+        <p>Bilgisayar Mühendisliği Ders Arşivi</p>
+    </header>
 
-<div class="year-nav">
-    <button class="year-btn active" onclick="showYear('year1', this)">1. Sınıf</button>
-    <button class="year-btn" onclick="showYear('year2', this)">2. Sınıf</button>
-    <button class="year-btn" onclick="showYear('year3', this)">3. Sınıf</button>
-    <button class="year-btn" onclick="showYear('year4', this)">4. Sınıf</button>
-</div>
+    <div class="year-nav">
+        <button class="year-btn active" onclick="showYear('year1', this)">1. Sınıf</button>
+        <button class="year-btn" onclick="showYear('year2', this)">2. Sınıf</button>
+        <button class="year-btn" onclick="showYear('year3', this)">3. Sınıf</button>
+        <button class="year-btn" onclick="showYear('year4', this)">4. Sınıf</button>
+    </div>
 
-<div id="year1" class="year-content active">
-    <div class="semester-title">🍂 Güz Dönemi (1. Yarıyıl)</div>
-    <div class="course-list">
-        <div class="course-item"><span>Matematik I</span> <div class="links"><a href="#">Notlar</a></div></div>
-        <div class="course-item"><span>Fizik I</span> <div class="links"><a href="#">Sorular</a></div></div>
+    <div id="year1" class="year-content active">
+        <div class="semester-title">🍂 Güz Dönemi</div>
+        <div class="course-list">
+            <div class="course-item"><span>Matematik I</span> <div class="links"><a href="#">Notlar</a></div></div>
+            <div class="course-item"><span>Fizik I</span> <div class="links"><a href="#">Sorular</a></div></div>
+        </div>
+        <div class="semester-title">🌸 Bahar Dönemi</div>
+        <div class="course-list">
+            <div class="course-item"><span>Matematik II</span> <div class="links"><a href="#">Notlar</a></div></div>
+        </div>
     </div>
-    <div class="semester-title">🌸 Bahar Dönemi (2. Yarıyıl)</div>
-    <div class="course-list">
-        <div class="course-item"><span>Matematik II</span> <div class="links"><a href="#">Notlar</a></div></div>
-    </div>
-</div>
 
-<div id="year2" class="year-content">
-    <div class="semester-title">🍂 Güz Dönemi (3. Yarıyıl)</div>
-    <div class="course-list">
-        <div class="course-item"><span>Veri Yapıları</span> <div class="links"><a href="#">Kodlar</a></div></div>
-        <div class="course-item"><span>Ayrık Matematik</span> <div class="links"><a href="#">Not</a></div></div>
-    </div>
-    <div class="semester-title">🌸 Bahar Dönemi (4. Yarıyıl)</div>
-    <div class="course-list">
-        <div class="course-item"><span>Diferansiyel Denklemler</span> <div class="links"><a href="#">Java</a></div></div>
+    <div id="year2" class="year-content">
+        <div class="semester-title">🍂 Güz Dönemi</div>
+        <div class="course-list">
+            <div class="course-item"><span>Veri Yapıları</span> <div class="links"><a href="#">Kodlar</a></div></div>
+            <div class="course-item"><span>Ayrık Matematik</span> <div class="links"><a href="#">Not</a></div></div>
+        </div>
+        <div class="semester-title">🌸 Bahar Dönemi</div>
+        <div class="course-list">
+            <div class="course-item"><span>Diferansiyel Denklemler</span> <div class="links"><a href="#">Notlar</a></div></div>
+        </div>
     </div>
 </div>
 
 <script>
     function showYear(yearId, btn) {
-        // Tüm içerikleri gizle
         document.querySelectorAll('.year-content').forEach(el => el.classList.remove('active'));
-        // Tüm butonların aktifliğini kaldır
         document.querySelectorAll('.year-btn').forEach(el => el.classList.remove('active'));
-        
-        // Seçileni göster
         document.getElementById(yearId).classList.add('active');
         btn.classList.add('active');
     }
