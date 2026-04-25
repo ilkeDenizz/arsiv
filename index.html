@@ -3,107 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Racoon Explorer 🦝</title>
+    <title>Racoon Explorer v3 | Akademik Arşiv 🦝</title>
     <style>
         :root {
-            --main-bg: #0d0d0f;
-            --glass: rgba(30, 30, 40, 0.7);
-            --accent: #a29bfe;
-            --accent-2: #81ecec;
-            --text: #f1f2f6;
-            --border: rgba(255, 255, 255, 0.1);
+            --main-bg: #080a10;
+            --glass-bg: rgba(20, 25, 35, 0.6);
+            --card-hover: rgba(40, 45, 60, 0.8);
+            --accent-purple: #8e44ad; /* Premium Mor */
+            --accent-glow: rgba(142, 68, 173, 0.3);
+            --text-main: #f0f3f8;
+            --text-dim: #a1b0c0;
+            --border: rgba(255, 255, 255, 0.06);
+            --success: #00d2d3;
         }
 
         body {
-            background: var(--main-bg);
-            background-image: radial-gradient(circle at 50% -20%, #302b63 0%, #0d0d0f 80%);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
+            background-color: var(--main-bg);
+            background-image: radial-gradient(circle at 50% -30%, #1e1b4b 0%, #080a10 70%);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0; padding: 20px;
             display: flex; justify-content: center;
+            min-height: 100vh;
         }
 
-        .container { width: 100%; max-width: 450px; }
+        .main-container {
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.6s ease;
+        }
 
-        header { text-align: center; margin-bottom: 25px; }
-        header h1 { font-size: 1.5rem; margin: 0; color: var(--accent); }
+        header { text-align: center; margin-bottom: 30px; }
+        header h1 {
+            font-size: 1.8rem; margin: 0; letter-spacing: -1px;
+            color: var(--accent-purple);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+        header p { color: var(--text-dim); font-size: 0.8rem; margin-top: 6px; }
 
-        /* Sınıf Navigasyonu */
+        /* Sınıf Navigasyonu - Daha Zarif ve Toplu */
         .year-nav {
-            display: flex; gap: 5px; background: var(--glass);
-            padding: 5px; border-radius: 10px; border: 1px solid var(--border);
-            margin-bottom: 20px;
+            display: flex; gap: 6px; background: var(--glass-bg);
+            padding: 5px; border-radius: 12px; border: 1px solid var(--border);
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
         }
 
         .year-btn {
-            flex: 1; background: transparent; border: none; color: #777;
-            padding: 8px 0; border-radius: 6px; cursor: pointer;
-            font-size: 0.75rem; font-weight: 600; transition: 0.3s;
+            flex: 1; background: transparent; border: none; color: var(--text-dim);
+            padding: 10px 0; border-radius: 8px; cursor: pointer;
+            font-size: 0.75rem; font-weight: 600; transition: 0.2s;
         }
 
-        .year-btn.active { background: rgba(162, 155, 254, 0.2); color: var(--accent); }
+        .year-btn:hover { background: rgba(255,255,255,0.03); color: #fff; }
 
-        /* Ders Kartları */
+        .year-btn.active {
+            background: rgba(142, 68, 173, 0.15);
+            color: #fff;
+            border: 1px solid rgba(142, 68, 173, 0.4);
+            box-shadow: inset 0 0 10px rgba(142, 68, 173, 0.1);
+        }
+
+        /* Yıl İçerikleri */
+        .year-content { display: none; }
+        .year-content.active { display: block; animation: slideUp 0.4s ease; }
+
+        .semester-title {
+            color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 1.5px; margin: 25px 0 10px 5px; font-weight: 700;
+        }
+
+        /* Ders Kartları - Yeniden Tasarlandı */
         .course-card {
-            background: var(--glass); backdrop-filter: blur(10px);
-            border: 1px solid var(--border); border-radius: 12px;
-            padding: 15px; margin-bottom: 10px;
+            background: var(--glass-bg); backdrop-filter: blur(8px);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 18px; margin-bottom: 12px;
+            transition: all 0.3s;
         }
 
-        .course-name { font-size: 0.9rem; margin-bottom: 12px; font-weight: 500; }
-
-        .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-
-        .folder-btn {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
-            color: var(--text); padding: 8px; border-radius: 6px;
-            font-size: 0.7rem; cursor: pointer; text-align: center;
-            display: flex; align-items: center; justify-content: center; gap: 5px;
+        .course-card:hover {
+            background: var(--card-hover);
+            border-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
-        .folder-btn:hover { background: rgba(255, 255, 255, 0.1); }
+        .course-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 15px; color: #fff; }
 
-        /* MODAL (Dosya Gezgini Görünümü) */
+        /* Butonlar - Tam İstediğin Gibi İkili ve Şık */
+        .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+        .explorer-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-bright);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            transition: 0.2s;
+        }
+
+        .explorer-btn:active { transform: scale(0.97); }
+
+        /* Klasör Butonu Özel */
+        .btn-folder { color: var(--accent-purple); border-color: rgba(142, 68, 173, 0.2); }
+        .btn-folder:hover { background: rgba(142, 68, 173, 0.1); border-color: rgba(142, 68, 173, 0.5); color: #fff; }
+
+        /* Soru Butonu Özel */
+        .btn-exam { color: var(--success); border-color: rgba(0, 210, 211, 0.2); }
+        .btn-exam:hover { background: rgba(0, 210, 211, 0.1); border-color: rgba(0, 210, 211, 0.5); color: #fff; }
+
+        /* MODAL (Dosya Gezgini - Premium) */
         .modal {
             display: none; position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px); z-index: 100;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px); z-index: 100;
             justify-content: center; align-items: center;
         }
 
         .modal-content {
-            background: #1c1c24; width: 85%; max-width: 350px;
-            border-radius: 15px; border: 1px solid var(--border);
-            padding: 20px; position: relative;
+            background: #111319;
+            width: 85%; max-width: 360px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            animation: modalPop 0.3s ease;
         }
 
         .modal-header {
             display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 15px; border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
+            margin-bottom: 20px; border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
         }
 
-        .modal-title { font-size: 0.85rem; color: var(--accent-2); font-weight: bold; }
+        .modal-title { font-size: 0.9rem; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+        .close-modal { cursor: pointer; font-size: 1.4rem; color: #ff7675; transition: 0.2s; }
+        .close-modal:hover { color: #ff4757; transform: rotate(90deg); }
 
         .file-list { display: flex; flex-direction: column; gap: 10px; }
 
         .file-item {
-            display: flex; align-items: center; gap: 10px;
-            text-decoration: none; color: #ccc; font-size: 0.8rem;
-            padding: 8px; border-radius: 5px; background: rgba(255,255,255,0.03);
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--text-dim); font-size: 0.8rem;
+            padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.02);
+            border: 1px solid transparent; transition: 0.2s;
         }
 
-        .file-item:hover { background: rgba(255,255,255,0.08); color: white; }
+        .file-item:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            border-color: var(--border);
+            transform: translateX(3px);
+        }
 
-        .close-modal { cursor: pointer; font-size: 1.2rem; color: #ff7675; }
-
-        .year-section { display: none; }
-        .year-section.active { display: block; }
+        /* Animasyonlar */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes modalPop { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="main-container">
     <header>
         <h1>Racoon Explorer 🦝</h1>
         <p>Bilgisayar Mühendisliği Dosya Sistemi</p>
@@ -116,22 +183,31 @@
         <button class="year-btn" onclick="switchYear('y4', this)">4. Sınıf</button>
     </nav>
 
-    <div id="y1" class="year-section active">
+    <div id="y1" class="year-content active">
+        <div class="semester-title">🍂 Güz Dönemi</div>
         <div class="course-card">
             <div class="course-name">Matematik I</div>
             <div class="btn-row">
-                <button class="folder-btn" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="folder-btn" onclick="openFolder('Mat I - Çıkmış', ['2023_Vize.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
+                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
+                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
+            </div>
+        </div>
+        <div class="course-card">
+            <div class="course-name">Fizik I</div>
+            <div class="btn-row">
+                <button class="explorer-btn btn-folder" onclick="openFolder('Fizik I - Notlar', ['Kinetik_Enerji.pdf'])">📂 Notlar</button>
+                <button class="explorer-btn btn-exam" onclick="openFolder('Fizik I - Çıkmış', ['Fizik_Vize.pdf'])">📝 Sorular</button>
             </div>
         </div>
     </div>
 
-    <div id="y2" class="year-section">
+    <div id="y2" class="year-content">
+        <div class="semester-title">🍂 Güz Dönemi</div>
         <div class="course-card">
             <div class="course-name">Veri Yapıları</div>
             <div class="btn-row">
-                <button class="folder-btn" onclick="openFolder('Veri Yapıları - Notlar', ['LinkedList.pdf', 'Trees.pdf'])">📂 Notlar</button>
-                <button class="folder-btn" onclick="openFolder('Veri Yapıları - Çıkmış', ['Vize_2024.pdf'])">📝 Sorular</button>
+                <button class="explorer-btn btn-folder" onclick="openFolder('Veri Yapıları - Notlar', ['Trees.pdf'])">📂 Notlar</button>
+                <button class="explorer-btn btn-exam" onclick="openFolder('Veri Yapıları - Çıkmış', ['Vize_2024.pdf'])">📝 Sorular</button>
             </div>
         </div>
     </div>
@@ -140,7 +216,7 @@
 <div id="fileModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <span id="folderTitle" class="modal-title">Klasör İçeriği</span>
+            <span id="folderTitle" class="modal-title">Klasör</span>
             <span class="close-modal" onclick="closeModal()">&times;</span>
         </div>
         <div id="fileList" class="file-list">
@@ -150,7 +226,7 @@
 
 <script>
     function switchYear(id, btn) {
-        document.querySelectorAll('.year-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.year-content').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         btn.classList.add('active');
@@ -159,12 +235,17 @@
     function openFolder(title, files) {
         const modal = document.getElementById('fileModal');
         const list = document.getElementById('fileList');
-        document.getElementById('folderTitle').innerText = title;
+        document.getElementById('folderTitle').innerHTML = `📂 ${title}`;
         
-        list.innerHTML = ''; 
-        files.forEach(file => {
-            list.innerHTML += `<a href="#" class="file-item">📄 ${file}</a>`;
-        });
+        list.innerHTML = ''; // Temizle
+        if (files.length === 0) {
+            list.innerHTML = '<div style="text-align:center; color:#555; font-size:0.8rem; padding:20px;">Bu klasör boş.</div>';
+        } else {
+            files.forEach(file => {
+                // Buradaki '#' yerine kendi Google Drive / GitHub dosya linklerini koymalısın hocam
+                list.innerHTML += `<a href="#" target="_blank" class="file-item">📄 ${file}</a>`;
+            });
+        }
 
         modal.style.display = 'flex';
     }
@@ -173,7 +254,6 @@
         document.getElementById('fileModal').style.display = 'none';
     }
 
-    // Modal dışına tıklayınca kapat
     window.onclick = function(event) {
         if (event.target == document.getElementById('fileModal')) closeModal();
     }
