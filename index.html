@@ -9,7 +9,7 @@
             --main-bg: #080a10;
             --glass-bg: rgba(20, 25, 35, 0.6);
             --card-hover: rgba(40, 45, 60, 0.8);
-            --accent-purple: #8e44ad; /* Premium Mor */
+            --accent-purple: #8e44ad; 
             --accent-glow: rgba(142, 68, 173, 0.3);
             --text-main: #f0f3f8;
             --text-dim: #a1b0c0;
@@ -41,7 +41,7 @@
         }
         header p { color: var(--text-dim); font-size: 0.8rem; margin-top: 6px; }
 
-        /* Sınıf Navigasyonu - Daha Zarif ve Toplu */
+        
         .year-nav {
             display: flex; gap: 6px; background: var(--glass-bg);
             padding: 5px; border-radius: 12px; border: 1px solid var(--border);
@@ -64,7 +64,6 @@
             box-shadow: inset 0 0 10px rgba(142, 68, 173, 0.1);
         }
 
-        /* Yıl İçerikleri */
         .year-content { display: none; }
         .year-content.active { display: block; animation: slideUp 0.4s ease; }
 
@@ -73,7 +72,7 @@
             letter-spacing: 1.5px; margin: 25px 0 10px 5px; font-weight: 700;
         }
 
-        /* Ders Kartları - Yeniden Tasarlandı */
+        
         .course-card {
             background: var(--glass-bg); backdrop-filter: blur(8px);
             border: 1px solid var(--border); border-radius: 16px;
@@ -90,7 +89,6 @@
 
         .course-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 15px; color: #fff; }
 
-        /* Butonlar - Tam İstediğin Gibi İkili ve Şık */
         .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
         .explorer-btn {
@@ -109,15 +107,12 @@
 
         .explorer-btn:active { transform: scale(0.97); }
 
-        /* Klasör Butonu Özel */
         .btn-folder { color: var(--accent-purple); border-color: rgba(142, 68, 173, 0.2); }
         .btn-folder:hover { background: rgba(142, 68, 173, 0.1); border-color: rgba(142, 68, 173, 0.5); color: #fff; }
 
-        /* Soru Butonu Özel */
         .btn-exam { color: var(--success); border-color: rgba(0, 210, 211, 0.2); }
         .btn-exam:hover { background: rgba(0, 210, 211, 0.1); border-color: rgba(0, 210, 211, 0.5); color: #fff; }
 
-        /* MODAL (Dosya Gezgini - Premium) */
         .modal {
             display: none; position: fixed; top: 0; left: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.85);
@@ -162,7 +157,6 @@
             transform: translateX(3px);
         }
 
-        /* Animasyonlar */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes modalPop { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
@@ -273,12 +267,11 @@
         const list = document.getElementById('fileList');
         document.getElementById('folderTitle').innerHTML = `📂 ${title}`;
         
-        list.innerHTML = ''; // Temizle
+        list.innerHTML = ''; 
         if (files.length === 0) {
             list.innerHTML = '<div style="text-align:center; color:#555; font-size:0.8rem; padding:20px;">Bu klasör boş.</div>';
         } else {
             files.forEach(file => {
-                // Buradaki '#' yerine kendi Google Drive / GitHub dosya linklerini koymalısın hocam
                 list.innerHTML += `<a href="#" target="_blank" class="file-item">📄 ${file}</a>`;
             });
         }
