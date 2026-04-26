@@ -41,7 +41,6 @@
         }
         header p { color: var(--text-dim); font-size: 0.8rem; margin-top: 6px; }
 
-        
         .year-nav {
             display: flex; gap: 6px; background: var(--glass-bg);
             padding: 5px; border-radius: 12px; border: 1px solid var(--border);
@@ -72,7 +71,6 @@
             letter-spacing: 1.5px; margin: 25px 0 10px 5px; font-weight: 700;
         }
 
-        
         .course-card {
             background: var(--glass-bg); backdrop-filter: blur(8px);
             border: 1px solid var(--border); border-radius: 16px;
@@ -94,7 +92,7 @@
         .explorer-btn {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border);
-            color: var(--text-bright);
+            color: var(--text-main);
             padding: 10px;
             border-radius: 8px;
             font-size: 0.75rem;
@@ -179,177 +177,41 @@
 
     <div id="y1" class="year-content active">
         <div class="semester-title">🍂 Güz Dönemi</div>
-        <div class="course-card">
-            <div class="course-name">Matematik I</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-        <div class="course-card">
-            <div class="course-name">Fizik I</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Fizik I - Notlar', ['Kinetik_Enerji.pdf'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Fizik I - Çıkmış', ['Fizik_Vize.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-        
-        <div class="course-card">
-            <div class="course-name">Türkçe I</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-        <div class="course-card">
-            <div class="course-name">Tarih I</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-        <div class="course-card">
-            <div class="course-name">İngilizce I</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-        <div class="course-card">
-            <div class="course-name">Programlama I</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-            <div class="course-card">
-             <div class="course-name">Bilgisayar Mühendisliğine Giriş </div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-            </div>
-        </div>
-        <div class="semester-title">🌸 Bahar Dönemi</div>
-        <div class="course-card">
-            <div class="course-name">Matematik II</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-    <div class="course-card">
-             <div class="course-name">Fizik II</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-    <div class="course-card">
-             <div class="course-name">Türkçe II</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-    <div class="course-card">
-             <div class="course-name">İngilizce II</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-    <div class="course-card">
-             <div class="course-name">Programlama II</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-    </div>
-    <div class="course-card">
-             <div class="course-name">Tarih II</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-    </div>
-    <div class="course-card">
-             <div class="course-name">Biyoloji</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-     </div>
+        <div class="course-card"><div class="course-name">Matematik I</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Fizik I</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Fizik I - Notlar', ['Kinetik.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Fizik I - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Türkçe I</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Türkçe I - Notlar', ['Yazım.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Türkçe I - Sorular', ['Sınav.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Tarih I</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Tarih I - Notlar', ['İnkılap.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Tarih I - Sorular', ['Sınav.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">İngilizce I</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('İngilizce I - Notlar', ['Grammar.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('İngilizce I - Sorular', ['Quiz.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Programlama I</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Programlama I - Notlar', ['C_Giriş.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Programlama I - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Bilgisayar Mühendisliğine Giriş</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Giriş - Notlar', ['Hafta1.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Giriş - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
 
+        <div class="semester-title">🌸 Bahar Dönemi</div>
+        <div class="course-card"><div class="course-name">Matematik II</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Mat II - Notlar', ['İntegral.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Mat II - Sorular', ['Final.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Fizik II</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Fizik II - Notlar', ['Elektrik.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Fizik II - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Türkçe II</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Türkçe II - Notlar', ['Sunum.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Türkçe II - Sorular', ['Final.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">İngilizce II</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('İngilizce II - Notlar', ['Vocabulary.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('İngilizce II - Sorular', ['Final.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Programlama II</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Programlama II - Notlar', ['Pointers.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Programlama II - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Tarih II</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Tarih II - Notlar', ['Kronoloji.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Tarih II - Sorular', ['Final.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Biyoloji</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Biyoloji - Notlar', ['Hücre.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Biyoloji - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+    </div>
 
     <div id="y2" class="year-content">
         <div class="semester-title">🍂 Güz Dönemi</div>
-        <div class="course-card">
-            <div class="course-name">Veri Yapıları</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Veri Yapıları - Notlar', ['Trees.pdf'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Veri Yapıları - Çıkmış', ['Vize_2024.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-        <div class="course-card">
-            <div class="course-name">Ayrık Matematik</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Veri Yapıları - Notlar', ['Trees.pdf'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Veri Yapıları - Çıkmış', ['Vize_2024.pdf'])">📝 Sorular</button>
-            </div>
-        </div>
-    <div class="course-card">
-            <div class="course-name">Cebir</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Veri Yapıları - Notlar', ['Trees.pdf'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Veri Yapıları - Çıkmış', ['Vize_2024.pdf'])">📝 Sorular</button>
-            </div>
+        <div class="course-card"><div class="course-name">Veri Yapıları</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Veri Yapıları - Notlar', ['Trees.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Veri Yapıları - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Ayrık Matematik</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Ayrık - Notlar', ['Graf.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Ayrık - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Cebir</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Cebir - Notlar', ['Matrisler.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Cebir - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Sayısal Sistem Tasarımı</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Sayısal - Notlar', ['Logic.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Sayısal - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Nesne Tabanlı Programlama</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('NTP - Notlar', ['Inheritance.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('NTP - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        
+        <div class="semester-title">🌸 Bahar Dönemi</div>
+        <div class="course-card"><div class="course-name">Mikroişlemciler</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Mikro - Notlar', ['8086.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Mikro - Sorular', ['Final.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Devre Temelleri</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Devre - Notlar', ['Kirchhoff.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Devre - Sorular', ['Final.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Diferansiyel Denklemler</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Dif - Notlar', ['Homojen.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Dif - Sorular', ['Vize.pdf'])">📝 Sorular</button></div></div>
+        <div class="course-card"><div class="course-name">Algoritma Tasarımı</div><div class="btn-row"><button class="explorer-btn btn-folder" onclick="openFolder('Algoritma - Notlar', ['BigO.pdf'])">📂 Notlar</button><button class="explorer-btn btn-exam" onclick="openFolder('Algoritma - Sorular', ['Final.pdf'])">📝 Sorular</button></div></div>
     </div>
-    <div class="course-card">
-             <div class="course-name">Sayısal Sistem Tasarımı</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Veri Yapıları - Notlar', ['Trees.pdf'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Veri Yapıları - Çıkmış', ['Vize_2024.pdf'])">📝 Sorular</button>
-            </div>
-    </div>
-    <div class="course-card">
-            <div class="course-name">Nesne Tabanlı Programlama</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Veri Yapıları - Notlar', ['Trees.pdf'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Veri Yapıları - Çıkmış', ['Vize_2024.pdf'])">📝 Sorular</button>
-            </div>
-    </div>
-            <div class="semester-title">🌸 Bahar Dönemi</div>
-        <div class="course-card">
-            <div class="course-name">Mikroişlemciler</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-            </div>
-    <div class="course-card">
-             <div class="course-name">Devre Temelleri</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-    </div>
-    <div class="course-card">
-             <div class="course-name">Diferansiyel</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-    </div>
-    <div class="course-card">
-             <div class="course-name">Algoritma Tasarımı</div>
-            <div class="btn-row">
-                <button class="explorer-btn btn-folder" onclick="openFolder('Mat I - Notlar', ['Limit_Notlar.pdf', 'Turev_Ozeti.docx'])">📂 Notlar</button>
-                <button class="explorer-btn btn-exam" onclick="openFolder('Mat I - Çıkmış', ['Vize_2023.pdf', 'Final_Sorulari.pdf'])">📝 Sorular</button>
-            </div>
-    </div>
-    </div>
+
+    <div id="y3" class="year-content"><div style="text-align:center; padding:50px; color:var(--text-dim);">3. Sınıf içeriği yakında... 🚧</div></div>
+    <div id="y4" class="year-content"><div style="text-align:center; padding:50px; color:var(--text-dim);">4. Sınıf içeriği yakında... 🚧</div></div>
 </div>
 
 <div id="fileModal" class="modal">
@@ -358,8 +220,7 @@
             <span id="folderTitle" class="modal-title">Klasör</span>
             <span class="close-modal" onclick="closeModal()">&times;</span>
         </div>
-        <div id="fileList" class="file-list">
-            </div>
+        <div id="fileList" class="file-list"></div>
     </div>
 </div>
 
@@ -375,16 +236,10 @@
         const modal = document.getElementById('fileModal');
         const list = document.getElementById('fileList');
         document.getElementById('folderTitle').innerHTML = `📂 ${title}`;
-        
         list.innerHTML = ''; 
-        if (files.length === 0) {
-            list.innerHTML = '<div style="text-align:center; color:#555; font-size:0.8rem; padding:20px;">Bu klasör boş.</div>';
-        } else {
-            files.forEach(file => {
-                list.innerHTML += `<a href="#" target="_blank" class="file-item">📄 ${file}</a>`;
-            });
-        }
-
+        files.forEach(file => {
+            list.innerHTML += `<a href="#" class="file-item">📄 ${file}</a>`;
+        });
         modal.style.display = 'flex';
     }
 
